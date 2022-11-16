@@ -20,9 +20,18 @@ class Songs(models.Model):
     duration = models.TimeField()
     num_play = models.IntegerField()
     explicit = models.BooleanField()
-    playlist_song = models.ManyToManyField(Playlist)
+    # playlist_song = models.ManyToManyField(Playlist)
     # album_song = models.ManyToManyField(Album)
     # genre_song = models.ManyToManyField(Genre)
     # artist_song = models.ManyToManyField(Artist)
+
+
+class PlaylistSong(models.Model):
+    song = models.ForeignKey('Songs', on_delete=models.PROTECT)
+    playlist = models.ForeignKey('Playlist', on_delete=models.PROTECT)
+
+class AlbumSongs(models.Model):
+    album = models.ForeignKey('Album', on_delete=models.PROTECT)
+    song = models.ForeignKey('Songs', on_delete=models.PROTECT)
 
 
