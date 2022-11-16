@@ -25,7 +25,7 @@ class Songs(models.Model):
     # artist_song = models.ManyToManyField(Artist)
 
 
-class PlaylistSong(models.Model):
+class PlaylistSongs(models.Model):
     song = models.ForeignKey('Songs', on_delete=models.PROTECT)
     playlist = models.ForeignKey('Playlist', on_delete=models.PROTECT)
 
