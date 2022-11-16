@@ -14,7 +14,6 @@ class Artist(models.Model):
     bio = models.CharField(max_length=255)
     img_url = models.URLField(max_length=200)
 
-# Create your models here.
 class Songs(models.Model):
     title = models.CharField(max_length=255)
     duration = models.TimeField()
@@ -38,5 +37,8 @@ class GenreSongs(models.Model):
     genre = models.ForeignKey('Genre', on_delete=models.PROTECT)
     song = models.ForeignKey('Songs', on_delete=models.PROTECT)
 
+class ArtistSongs(models.Model):
+    artist = models.ForeignKey('Artist',on_delete=models.PROTECT)
+    song = models.ForeignKey('Songs', on_delete=models.PROTECT)
 
 
