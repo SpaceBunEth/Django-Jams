@@ -34,4 +34,9 @@ class AlbumSongs(models.Model):
     album = models.ForeignKey('Album', on_delete=models.PROTECT)
     song = models.ForeignKey('Songs', on_delete=models.PROTECT)
 
+class GenreSongs(models.Model):
+    genre = models.ForeignKey('Genre', on_delete=models.PROTECT)
+    song = models.ForeignKey('Songs', on_delete=models.PROTECT)
+
+
 
